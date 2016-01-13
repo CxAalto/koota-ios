@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AB9239FD0CD90957F27A58E /* libPods-ActivityTrackingUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 274170F5637DAE2183569474 /* libPods-ActivityTrackingUITests.a */; };
+		264F66D915F5BBA038861F09 /* libPods-ActivityTrackingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C7E03EFA1516FDFC2B57178 /* libPods-ActivityTrackingTests.a */; };
+		8F0703BE1C45B1DD0083F3D5 /* ActivitySyncer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0703BD1C45B1DD0083F3D5 /* ActivitySyncer.m */; };
+		8FE98AB91C39665700FAB383 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE98AB81C39665700FAB383 /* SettingsViewController.m */; };
 		8FEF17F71C22E9F200EF03F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF17F61C22E9F200EF03F8 /* main.m */; };
 		8FEF17FA1C22E9F200EF03F8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF17F91C22E9F200EF03F8 /* AppDelegate.m */; };
 		8FEF17FD1C22E9F200EF03F8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF17FC1C22E9F200EF03F8 /* ViewController.m */; };
@@ -16,6 +20,8 @@
 		8FEF18081C22E9F200EF03F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FEF18061C22E9F200EF03F8 /* LaunchScreen.storyboard */; };
 		8FEF18131C22E9F200EF03F8 /* ActivityTrackingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF18121C22E9F200EF03F8 /* ActivityTrackingTests.m */; };
 		8FEF181E1C22E9F200EF03F8 /* ActivityTrackingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF181D1C22E9F200EF03F8 /* ActivityTrackingUITests.m */; };
+		8FEF182C1C22F47600EF03F8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FEF182B1C22F47600EF03F8 /* CoreLocation.framework */; };
+		94EE6539C25DA8C3A500387C /* libPods-ActivityTracking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 663C53C3EAF11B567AEA9DF6 /* libPods-ActivityTracking.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +42,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1057C55BB548334591E937D0 /* Pods-ActivityTrackingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActivityTrackingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ActivityTrackingTests/Pods-ActivityTrackingTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1C7E03EFA1516FDFC2B57178 /* libPods-ActivityTrackingTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ActivityTrackingTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		274170F5637DAE2183569474 /* libPods-ActivityTrackingUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ActivityTrackingUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		38F1389E0B2EB5C36409E1CB /* Pods-ActivityTrackingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActivityTrackingUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ActivityTrackingUITests/Pods-ActivityTrackingUITests.release.xcconfig"; sourceTree = "<group>"; };
+		418CAAA16F8A7547F69B652A /* Pods-ActivityTracking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActivityTracking.release.xcconfig"; path = "Pods/Target Support Files/Pods-ActivityTracking/Pods-ActivityTracking.release.xcconfig"; sourceTree = "<group>"; };
+		571DBAAEB1D928C6E79D07CA /* Pods-ActivityTrackingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActivityTrackingUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ActivityTrackingUITests/Pods-ActivityTrackingUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		663C53C3EAF11B567AEA9DF6 /* libPods-ActivityTracking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ActivityTracking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F0703BC1C45B1DD0083F3D5 /* ActivitySyncer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivitySyncer.h; sourceTree = "<group>"; };
+		8F0703BD1C45B1DD0083F3D5 /* ActivitySyncer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivitySyncer.m; sourceTree = "<group>"; };
+		8FE98AB71C39665700FAB383 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		8FE98AB81C39665700FAB383 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		8FEF17F21C22E9F200EF03F8 /* ActivityTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActivityTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FEF17F61C22E9F200EF03F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8FEF17F81C22E9F200EF03F8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -53,6 +70,9 @@
 		8FEF18191C22E9F200EF03F8 /* ActivityTrackingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ActivityTrackingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FEF181D1C22E9F200EF03F8 /* ActivityTrackingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActivityTrackingUITests.m; sourceTree = "<group>"; };
 		8FEF181F1C22E9F200EF03F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8FEF182B1C22F47600EF03F8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D11F9B59CD39020BC4938F99 /* Pods-ActivityTracking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActivityTracking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ActivityTracking/Pods-ActivityTracking.debug.xcconfig"; sourceTree = "<group>"; };
+		DEF4D405B9FD884DDDD73C67 /* Pods-ActivityTrackingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActivityTrackingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ActivityTrackingTests/Pods-ActivityTrackingTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +80,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FEF182C1C22F47600EF03F8 /* CoreLocation.framework in Frameworks */,
+				94EE6539C25DA8C3A500387C /* libPods-ActivityTracking.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				264F66D915F5BBA038861F09 /* libPods-ActivityTrackingTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,19 +97,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AB9239FD0CD90957F27A58E /* libPods-ActivityTrackingUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18B94DBA704D43134EFE804A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				663C53C3EAF11B567AEA9DF6 /* libPods-ActivityTracking.a */,
+				1C7E03EFA1516FDFC2B57178 /* libPods-ActivityTrackingTests.a */,
+				274170F5637DAE2183569474 /* libPods-ActivityTrackingUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4DA780C0049B215AF58F6DF6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D11F9B59CD39020BC4938F99 /* Pods-ActivityTracking.debug.xcconfig */,
+				418CAAA16F8A7547F69B652A /* Pods-ActivityTracking.release.xcconfig */,
+				1057C55BB548334591E937D0 /* Pods-ActivityTrackingTests.debug.xcconfig */,
+				DEF4D405B9FD884DDDD73C67 /* Pods-ActivityTrackingTests.release.xcconfig */,
+				571DBAAEB1D928C6E79D07CA /* Pods-ActivityTrackingUITests.debug.xcconfig */,
+				38F1389E0B2EB5C36409E1CB /* Pods-ActivityTrackingUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8FEF17E91C22E9F200EF03F8 = {
 			isa = PBXGroup;
 			children = (
+				8FEF182B1C22F47600EF03F8 /* CoreLocation.framework */,
 				8FEF17F41C22E9F200EF03F8 /* ActivityTracking */,
 				8FEF18111C22E9F200EF03F8 /* ActivityTrackingTests */,
 				8FEF181C1C22E9F200EF03F8 /* ActivityTrackingUITests */,
 				8FEF17F31C22E9F200EF03F8 /* Products */,
+				4DA780C0049B215AF58F6DF6 /* Pods */,
+				18B94DBA704D43134EFE804A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,6 +163,10 @@
 				8FEF18091C22E9F200EF03F8 /* Info.plist */,
 				8FEF18011C22E9F200EF03F8 /* ActivityTracking.xcdatamodeld */,
 				8FEF17F51C22E9F200EF03F8 /* Supporting Files */,
+				8FE98AB71C39665700FAB383 /* SettingsViewController.h */,
+				8FE98AB81C39665700FAB383 /* SettingsViewController.m */,
+				8F0703BC1C45B1DD0083F3D5 /* ActivitySyncer.h */,
+				8F0703BD1C45B1DD0083F3D5 /* ActivitySyncer.m */,
 			);
 			path = ActivityTracking;
 			sourceTree = "<group>";
@@ -150,9 +204,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8FEF18221C22E9F200EF03F8 /* Build configuration list for PBXNativeTarget "ActivityTracking" */;
 			buildPhases = (
+				8100906E167C9482585D84B0 /* Check Pods Manifest.lock */,
 				8FEF17EE1C22E9F200EF03F8 /* Sources */,
 				8FEF17EF1C22E9F200EF03F8 /* Frameworks */,
 				8FEF17F01C22E9F200EF03F8 /* Resources */,
+				4E0E36F7E200059E6E7F9F3E /* Embed Pods Frameworks */,
+				FADECB66959114BD206CA59C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +224,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8FEF18251C22E9F200EF03F8 /* Build configuration list for PBXNativeTarget "ActivityTrackingTests" */;
 			buildPhases = (
+				D1F7B8CFB48EB6691FC9FBEB /* Check Pods Manifest.lock */,
 				8FEF180A1C22E9F200EF03F8 /* Sources */,
 				8FEF180B1C22E9F200EF03F8 /* Frameworks */,
 				8FEF180C1C22E9F200EF03F8 /* Resources */,
+				08798DB51AFA440188EECF2C /* Embed Pods Frameworks */,
+				89FE728E5A4AD470531FB144 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -185,9 +245,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8FEF18281C22E9F200EF03F8 /* Build configuration list for PBXNativeTarget "ActivityTrackingUITests" */;
 			buildPhases = (
+				1FA37B460A4F1A8808473D11 /* Check Pods Manifest.lock */,
 				8FEF18151C22E9F200EF03F8 /* Sources */,
 				8FEF18161C22E9F200EF03F8 /* Frameworks */,
 				8FEF18171C22E9F200EF03F8 /* Resources */,
+				A867A06E7D3D2D1F767FBB3E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -210,6 +272,12 @@
 				TargetAttributes = {
 					8FEF17F11C22E9F200EF03F8 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 4C3DSSNN3B;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					8FEF180D1C22E9F200EF03F8 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -268,6 +336,129 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		08798DB51AFA440188EECF2C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ActivityTrackingTests/Pods-ActivityTrackingTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1FA37B460A4F1A8808473D11 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4E0E36F7E200059E6E7F9F3E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ActivityTracking/Pods-ActivityTracking-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8100906E167C9482585D84B0 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		89FE728E5A4AD470531FB144 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ActivityTrackingTests/Pods-ActivityTrackingTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A867A06E7D3D2D1F767FBB3E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ActivityTrackingUITests/Pods-ActivityTrackingUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1F7B8CFB48EB6691FC9FBEB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FADECB66959114BD206CA59C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ActivityTracking/Pods-ActivityTracking-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8FEF17EE1C22E9F200EF03F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -275,7 +466,9 @@
 			files = (
 				8FEF17FD1C22E9F200EF03F8 /* ViewController.m in Sources */,
 				8FEF18031C22E9F200EF03F8 /* ActivityTracking.xcdatamodeld in Sources */,
+				8FE98AB91C39665700FAB383 /* SettingsViewController.m in Sources */,
 				8FEF17FA1C22E9F200EF03F8 /* AppDelegate.m in Sources */,
+				8F0703BE1C45B1DD0083F3D5 /* ActivitySyncer.m in Sources */,
 				8FEF17F71C22E9F200EF03F8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,8 +608,10 @@
 		};
 		8FEF18231C22E9F200EF03F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D11F9B59CD39020BC4938F99 /* Pods-ActivityTracking.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ActivityTracking/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fi.aalto.ActivityTracking;
@@ -426,8 +621,10 @@
 		};
 		8FEF18241C22E9F200EF03F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 418CAAA16F8A7547F69B652A /* Pods-ActivityTracking.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ActivityTracking/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fi.aalto.ActivityTracking;
@@ -437,6 +634,7 @@
 		};
 		8FEF18261C22E9F200EF03F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1057C55BB548334591E937D0 /* Pods-ActivityTrackingTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ActivityTrackingTests/Info.plist;
@@ -449,6 +647,7 @@
 		};
 		8FEF18271C22E9F200EF03F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DEF4D405B9FD884DDDD73C67 /* Pods-ActivityTrackingTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ActivityTrackingTests/Info.plist;
@@ -461,6 +660,7 @@
 		};
 		8FEF18291C22E9F200EF03F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 571DBAAEB1D928C6E79D07CA /* Pods-ActivityTrackingUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = ActivityTrackingUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -473,6 +673,7 @@
 		};
 		8FEF182A1C22E9F200EF03F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38F1389E0B2EB5C36409E1CB /* Pods-ActivityTrackingUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = ActivityTrackingUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -502,6 +703,7 @@
 				8FEF18241C22E9F200EF03F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8FEF18251C22E9F200EF03F8 /* Build configuration list for PBXNativeTarget "ActivityTrackingTests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +712,7 @@
 				8FEF18271C22E9F200EF03F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8FEF18281C22E9F200EF03F8 /* Build configuration list for PBXNativeTarget "ActivityTrackingUITests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +721,7 @@
 				8FEF182A1C22E9F200EF03F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

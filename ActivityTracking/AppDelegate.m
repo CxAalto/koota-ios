@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#import "ActivitySyncer.h"
+
 @interface AppDelegate ()
 
 @end
@@ -42,6 +44,27 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
+- (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    // fetch config or upload if nessecery
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSDate* lastConfigFetch = [defaults valueForKey:@"config_fetch_time"];
+    NSDate* lastDataUpload = [defaults valueForKey:@"data_upload_time"];
+#warning magic number!
+    if (!lastConfigFetch || -[lastConfigFetch timeIntervalSinceNow] > 10*60) {
+        [[ActivitySyncer sharedSyncer] downloadConfigWithSuccess:^{
+            completionHandler(UIBackgroundFetchResultNewData);
+        } Error:^{
+            completionHandler(UIBackgroundFetchResultNewData);
+        }];
+    } else if (!lastDataUpload || -[lastDataUpload timeIntervalSinceNow] > 1*60) {
+        [[ActivitySyncer sharedSyncer] uploadDataWithSuccess:^{
+            completionHandler(UIBackgroundFetchResultNewData);
+        } Error:^{
+            completionHandler(UIBackgroundFetchResultNewData);
+        }];
+    } else completionHandler(UIBackgroundFetchResultNoData);
 }
 
 #pragma mark - Core Data stack
