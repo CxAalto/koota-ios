@@ -6,6 +6,7 @@
 target 'ActivityTracking' do
   pod 'AFNetworking', '~> 3.0'
   pod 'QRCodeReaderViewController', '~> 4.0.1'
+  pod 'NewRelicAgent'
 end
 
 target 'ActivityTrackingTests' do
