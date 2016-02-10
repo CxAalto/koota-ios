@@ -10,10 +10,11 @@
 		0AB9239FD0CD90957F27A58E /* libPods-ActivityTrackingUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 274170F5637DAE2183569474 /* libPods-ActivityTrackingUITests.a */; };
 		264F66D915F5BBA038861F09 /* libPods-ActivityTrackingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C7E03EFA1516FDFC2B57178 /* libPods-ActivityTrackingTests.a */; };
 		8F0703BE1C45B1DD0083F3D5 /* ActivitySyncer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0703BD1C45B1DD0083F3D5 /* ActivitySyncer.m */; };
+		8F54A8821C526F930030D434 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F54A8811C526F930030D434 /* MainTableViewController.m */; };
+		8F9976C01C6B845000E2F59C /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9976BF1C6B845000E2F59C /* HealthKit.framework */; };
 		8FE98AB91C39665700FAB383 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE98AB81C39665700FAB383 /* SettingsViewController.m */; };
 		8FEF17F71C22E9F200EF03F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF17F61C22E9F200EF03F8 /* main.m */; };
 		8FEF17FA1C22E9F200EF03F8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF17F91C22E9F200EF03F8 /* AppDelegate.m */; };
-		8FEF17FD1C22E9F200EF03F8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF17FC1C22E9F200EF03F8 /* ViewController.m */; };
 		8FEF18001C22E9F200EF03F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FEF17FE1C22E9F200EF03F8 /* Main.storyboard */; };
 		8FEF18031C22E9F200EF03F8 /* ActivityTracking.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF18011C22E9F200EF03F8 /* ActivityTracking.xcdatamodeld */; };
 		8FEF18051C22E9F200EF03F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FEF18041C22E9F200EF03F8 /* Assets.xcassets */; };
@@ -51,14 +52,17 @@
 		663C53C3EAF11B567AEA9DF6 /* libPods-ActivityTracking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ActivityTracking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F0703BC1C45B1DD0083F3D5 /* ActivitySyncer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivitySyncer.h; sourceTree = "<group>"; };
 		8F0703BD1C45B1DD0083F3D5 /* ActivitySyncer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivitySyncer.m; sourceTree = "<group>"; };
+		8F54A8801C526F930030D434 /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
+		8F54A8811C526F930030D434 /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
+		8F5AF1BD1C6B8AE400277A66 /* ActivityTracking-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ActivityTracking-Prefix.pch"; sourceTree = "<group>"; };
+		8F9976BE1C6B845000E2F59C /* ActivityTracking.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ActivityTracking.entitlements; sourceTree = "<group>"; };
+		8F9976BF1C6B845000E2F59C /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		8FE98AB71C39665700FAB383 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		8FE98AB81C39665700FAB383 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		8FEF17F21C22E9F200EF03F8 /* ActivityTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActivityTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FEF17F61C22E9F200EF03F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8FEF17F81C22E9F200EF03F8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8FEF17F91C22E9F200EF03F8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8FEF17FB1C22E9F200EF03F8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8FEF17FC1C22E9F200EF03F8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8FEF17FF1C22E9F200EF03F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8FEF18021C22E9F200EF03F8 /* ActivityTracking.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ActivityTracking.xcdatamodel; sourceTree = "<group>"; };
 		8FEF18041C22E9F200EF03F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F9976C01C6B845000E2F59C /* HealthKit.framework in Frameworks */,
 				8FEF182C1C22F47600EF03F8 /* CoreLocation.framework in Frameworks */,
 				94EE6539C25DA8C3A500387C /* libPods-ActivityTracking.a in Frameworks */,
 			);
@@ -107,6 +112,7 @@
 		18B94DBA704D43134EFE804A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8F9976BF1C6B845000E2F59C /* HealthKit.framework */,
 				663C53C3EAF11B567AEA9DF6 /* libPods-ActivityTracking.a */,
 				1C7E03EFA1516FDFC2B57178 /* libPods-ActivityTrackingTests.a */,
 				274170F5637DAE2183569474 /* libPods-ActivityTrackingUITests.a */,
@@ -153,10 +159,9 @@
 		8FEF17F41C22E9F200EF03F8 /* ActivityTracking */ = {
 			isa = PBXGroup;
 			children = (
+				8F9976BE1C6B845000E2F59C /* ActivityTracking.entitlements */,
 				8FEF17F81C22E9F200EF03F8 /* AppDelegate.h */,
 				8FEF17F91C22E9F200EF03F8 /* AppDelegate.m */,
-				8FEF17FB1C22E9F200EF03F8 /* ViewController.h */,
-				8FEF17FC1C22E9F200EF03F8 /* ViewController.m */,
 				8FEF17FE1C22E9F200EF03F8 /* Main.storyboard */,
 				8FEF18041C22E9F200EF03F8 /* Assets.xcassets */,
 				8FEF18061C22E9F200EF03F8 /* LaunchScreen.storyboard */,
@@ -167,6 +172,8 @@
 				8FE98AB81C39665700FAB383 /* SettingsViewController.m */,
 				8F0703BC1C45B1DD0083F3D5 /* ActivitySyncer.h */,
 				8F0703BD1C45B1DD0083F3D5 /* ActivitySyncer.m */,
+				8F54A8801C526F930030D434 /* MainTableViewController.h */,
+				8F54A8811C526F930030D434 /* MainTableViewController.m */,
 			);
 			path = ActivityTracking;
 			sourceTree = "<group>";
@@ -175,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				8FEF17F61C22E9F200EF03F8 /* main.m */,
+				8F5AF1BD1C6B8AE400277A66 /* ActivityTracking-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -275,6 +283,9 @@
 						DevelopmentTeam = 4C3DSSNN3B;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.HealthKit = {
 								enabled = 1;
 							};
 						};
@@ -464,8 +475,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FEF17FD1C22E9F200EF03F8 /* ViewController.m in Sources */,
 				8FEF18031C22E9F200EF03F8 /* ActivityTracking.xcdatamodeld in Sources */,
+				8F54A8821C526F930030D434 /* MainTableViewController.m in Sources */,
 				8FE98AB91C39665700FAB383 /* SettingsViewController.m in Sources */,
 				8FEF17FA1C22E9F200EF03F8 /* AppDelegate.m in Sources */,
 				8F0703BE1C45B1DD0083F3D5 /* ActivitySyncer.m in Sources */,
@@ -611,11 +622,16 @@
 			baseConfigurationReference = D11F9B59CD39020BC4938F99 /* Pods-ActivityTracking.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ActivityTracking/ActivityTracking.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/$(PROJECT_NAME)-Prefix.pch";
 				INFOPLIST_FILE = ActivityTracking/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fi.aalto.ActivityTracking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -624,11 +640,16 @@
 			baseConfigurationReference = 418CAAA16F8A7547F69B652A /* Pods-ActivityTracking.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ActivityTracking/ActivityTracking.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/$(PROJECT_NAME)-Prefix.pch";
 				INFOPLIST_FILE = ActivityTracking/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fi.aalto.ActivityTracking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

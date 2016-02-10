@@ -12,13 +12,27 @@
 
 @interface AppDelegate ()
 
+@property (nonatomic, strong) CLLocationManager *locationManager;
+
 @end
 
 @implementation AppDelegate
 
+-(instancetype)init {
+    self = [super init];
+
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    self.locationManager.delegate = self;
+
+    [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:@"config" options:NSKeyValueObservingOptionInitial context:NULL];
+
+    return self;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [NewRelicAgent startWithApplicationToken:@"AAd9124e2155d397a7716be7a4338a2467c847c4a6"];
     return YES;
 }
 
@@ -147,4 +161,77 @@
     }
 }
 
+
+#pragma KVO
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"config"]) {
+        [self trackingConfigDidChange];
+    }
+}
+
+-(void)trackingConfigDidChange {
+    NSDictionary *config = [[NSUserDefaults standardUserDefaults] valueForKey:@"config"];
+    if ([config valueForKey:@"location"]) {
+        if ([[[config valueForKey:@"location"] valueForKey:@"enabled"] isEqualToValue:@(YES)]) {
+            NSLog(@"enabling location because of tracking config");
+            switch ([CLLocationManager authorizationStatus]) {
+                case kCLAuthorizationStatusNotDetermined:
+                    NSLog(@"app will now request location authorization. we need it to operate properly");
+                    [self.locationManager requestAlwaysAuthorization];
+                    break;
+                case kCLAuthorizationStatusDenied:
+                    NSLog(@"please authorize our app for location in settings page");
+                    break;
+                case kCLAuthorizationStatusRestricted:
+                    NSLog(@"You cannot allow our app to gather info because of some external reason such as parential control or cooprate policy");
+                    break;
+                default:
+                    [self.locationManager setAllowsBackgroundLocationUpdates:YES];
+                    [self.locationManager setPausesLocationUpdatesAutomatically:NO];
+                    [self.locationManager setActivityType:CLActivityTypeOther];
+                    [self.locationManager startUpdatingLocation];
+                    break;
+            }
+        }
+    }
+}
+
+# pragma locationManager
+- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(nonnull NSArray<CLLocation *> *)locations {
+    // TODO: store in data
+    for (CLLocation* location in locations) {
+        NSManagedObject* event = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:[(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext]];
+        [event setValue:[NSDate date] forKey:@"timestamp"];
+        [event setValue:@{@"lat": [NSNumber numberWithDouble:location.coordinate.latitude],
+                          @"lon": [NSNumber numberWithDouble:location.coordinate.longitude],
+                          @"speed": [NSNumber numberWithFloat:location.speed],
+                          @"alt": [NSNumber numberWithDouble:location.altitude]} forKey:@"payload"];
+    }
+    [(AppDelegate*)[[UIApplication sharedApplication] delegate] saveContext];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"last_event_time"];
+    NSLog(@"location logged");
+}
+
+- (void) locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    switch (status) {
+        case kCLAuthorizationStatusAuthorizedAlways:
+            [self trackingConfigDidChange];
+            break;
+        default:
+#warning actual alert dialogue
+            NSLog(@"please authorize our app for location in settings page");
+            break;
+    }
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    NSLog(@"location manager did fail with error: %@", error);
+}
+
+-(void)locationManagerDidPauseLocationUpdates:(CLLocationManager *)manager {
+    NSLog(@"Location manager paused location updates");
+}
+-(void)dealloc {
+    [[NSUserDefaults standardUserDefaults] removeObserver:self forKeyPath:@"config"];
+}
 @end

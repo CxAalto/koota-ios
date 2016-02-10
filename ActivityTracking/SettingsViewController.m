@@ -7,9 +7,9 @@
 //
 
 #import "SettingsViewController.h"
-#import "ViewController.h"
 
 #import <AFNetworking/AFNetworking.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface SettingsViewController ()
 
@@ -38,7 +38,13 @@
     [defaults addObserver:self forKeyPath:@"config_get" options:NSKeyValueObservingOptionInitial context:NULL];
     [defaults addObserver:self forKeyPath:@"user_uuid" options:NSKeyValueObservingOptionInitial context:NULL];
     [defaults addObserver:self forKeyPath:@"post_url" options:NSKeyValueObservingOptionInitial context:NULL];
+}
 
+-(void)dealloc {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObserver:self forKeyPath:@"config_get"];
+    [defaults removeObserver:self forKeyPath:@"user_uuid"];
+    [defaults removeObserver:self forKeyPath:@"post_url"];
 }
 
 - (IBAction)qrCodeButtonPressed:(id)sender {
@@ -47,8 +53,8 @@
 
 - (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)URLResult
 {
+    AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
     [self dismissViewControllerAnimated:YES completion:^{
-#warning use actual results string!
         NSLog(@"%@", URLResult);
         NSURLComponents* url = [NSURLComponents componentsWithString:URLResult];
         if (url && [url.scheme isEqualToString:@"koota"]) {
