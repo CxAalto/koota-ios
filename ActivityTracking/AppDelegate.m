@@ -9,10 +9,10 @@
 #import "AppDelegate.h"
 
 #import "ActivitySyncer.h"
+#import "HealthKitMonitor.h"
+#import "LocationMonitor.h"
 
 @interface AppDelegate ()
-
-@property (nonatomic, strong) CLLocationManager *locationManager;
 
 @end
 
@@ -20,10 +20,6 @@
 
 -(instancetype)init {
     self = [super init];
-
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    self.locationManager.delegate = self;
 
     [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:@"config" options:NSKeyValueObservingOptionInitial context:NULL];
 
@@ -173,64 +169,28 @@
     NSDictionary *config = [[NSUserDefaults standardUserDefaults] valueForKey:@"config"];
     if ([config valueForKey:@"location"]) {
         if ([[[config valueForKey:@"location"] valueForKey:@"enabled"] isEqualToValue:@(YES)]) {
-            NSLog(@"enabling location because of tracking config");
-            switch ([CLLocationManager authorizationStatus]) {
-                case kCLAuthorizationStatusNotDetermined:
-                    NSLog(@"app will now request location authorization. we need it to operate properly");
-                    [self.locationManager requestAlwaysAuthorization];
-                    break;
-                case kCLAuthorizationStatusDenied:
-                    NSLog(@"please authorize our app for location in settings page");
-                    break;
-                case kCLAuthorizationStatusRestricted:
-                    NSLog(@"You cannot allow our app to gather info because of some external reason such as parential control or cooprate policy");
-                    break;
-                default:
-                    [self.locationManager setAllowsBackgroundLocationUpdates:YES];
-                    [self.locationManager setPausesLocationUpdatesAutomatically:NO];
-                    [self.locationManager setActivityType:CLActivityTypeOther];
-                    [self.locationManager startUpdatingLocation];
-                    break;
-            }
+            [[LocationMonitor defaultMonitor] startRecording];
         }
+        else {
+            [[LocationMonitor defaultMonitor] stopRecording];
+        }
+    } else {
+        [[LocationMonitor defaultMonitor] stopRecording];
+    }
+    if ([config valueForKey:@"health"]) {
+        if ([[[config valueForKey:@"health"] valueForKey:@"enabled"] isEqualToValue:@(YES)]) {
+            [[HealthKitMonitor defaultMonitor] startRecording];
+        } else {
+            [[HealthKitMonitor defaultMonitor] stopRecording];
+        }
+    } else {
+        [[HealthKitMonitor defaultMonitor] stopRecording];
     }
 }
 
 # pragma locationManager
-- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(nonnull NSArray<CLLocation *> *)locations {
-    // TODO: store in data
-    for (CLLocation* location in locations) {
-        NSManagedObject* event = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:[(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext]];
-        [event setValue:[NSDate date] forKey:@"timestamp"];
-        [event setValue:@{@"lat": [NSNumber numberWithDouble:location.coordinate.latitude],
-                          @"lon": [NSNumber numberWithDouble:location.coordinate.longitude],
-                          @"speed": [NSNumber numberWithFloat:location.speed],
-                          @"alt": [NSNumber numberWithDouble:location.altitude]} forKey:@"payload"];
-    }
-    [(AppDelegate*)[[UIApplication sharedApplication] delegate] saveContext];
-    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"last_event_time"];
-    NSLog(@"location logged");
-}
 
-- (void) locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
-    switch (status) {
-        case kCLAuthorizationStatusAuthorizedAlways:
-            [self trackingConfigDidChange];
-            break;
-        default:
-#warning actual alert dialogue
-            NSLog(@"please authorize our app for location in settings page");
-            break;
-    }
-}
 
--(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    NSLog(@"location manager did fail with error: %@", error);
-}
-
--(void)locationManagerDidPauseLocationUpdates:(CLLocationManager *)manager {
-    NSLog(@"Location manager paused location updates");
-}
 -(void)dealloc {
     [[NSUserDefaults standardUserDefaults] removeObserver:self forKeyPath:@"config"];
 }

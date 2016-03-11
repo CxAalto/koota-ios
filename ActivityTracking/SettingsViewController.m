@@ -8,6 +8,8 @@
 
 #import "SettingsViewController.h"
 
+#import "ActivitySyncer.h"
+
 #import <AFNetworking/AFNetworking.h>
 #import <AudioToolbox/AudioToolbox.h>
 
@@ -80,34 +82,26 @@
     // get config
     // if error -> show error
     [self.activityIndicator startAnimating];
-    NSURLComponents* config = [NSURLComponents componentsWithString:self.configURL.text];
-    NSURLQueryItem* qi = [NSURLQueryItem queryItemWithName:@"device_id" value:self.userUUID.text];
-    if (![config queryItems]) [config setQueryItems:[NSArray array]];
-    NSArray* qs = [[config queryItems] arrayByAddingObject:qi];
-    [config setQueryItems:qs];
-    [[[NSURLSession sharedSession] dataTaskWithURL:config.URL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSError * error2;
-        NSDictionary* configDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error2];
-        NSLog(@"config data %@", configDic);
-        if (error || error2) {
-            NSLog(@"failed to get config");
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Configuration failed" message:@"Requesting config failed. Try again or check the config URL." preferredStyle:UIAlertControllerStyleAlert];
-            [self presentViewController:alert animated:YES completion:nil];
-        } else {
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
-                NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-                [self.activityIndicator stopAnimating];
-                NSDictionary* confFake = @{@"location": @{@"enabled": @(YES)}};
-                [defaults setObject:confFake forKey:@"config"];
-                [defaults setObject:[NSDate date] forKey:@"config_fetch_time"];
-                [defaults setObject:self.configURL.text forKey:@"config_get"];
-                [defaults setObject:self.dataURL.text forKey:@"post_url"];
-                [defaults setObject:self.userUUID.text forKey:@"user_uuid"];
-                [defaults synchronize];
-                [self.navigationController popViewControllerAnimated:YES];
-            }];
-        }
-    }] resume];
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSString* configOrig = [defaults stringForKey:@"config_get"];
+    [defaults setObject:self.configURL.text forKey:@"config_get"];
+    
+    [[ActivitySyncer sharedSyncer] downloadConfigWithSuccess:^{
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
+            [self.activityIndicator stopAnimating];
+            [defaults setObject:[NSDate date] forKey:@"config_fetch_time"];
+            [defaults setObject:self.configURL.text forKey:@"config_get"];
+            [defaults setObject:self.dataURL.text forKey:@"post_url"];
+            [defaults setObject:self.userUUID.text forKey:@"user_uuid"];
+            [defaults synchronize];
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+    } Error:^{
+        NSLog(@"failed to get config");
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Configuration failed" message:@"Requesting config failed. Try again or check the config URL." preferredStyle:UIAlertControllerStyleAlert];
+        [self presentViewController:alert animated:YES completion:nil];
+        [defaults setObject:configOrig forKey:@"config_get"];
+    }];    
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {

@@ -11,10 +11,14 @@
 #import "AppDelegate.h"
 #import "ActivitySyncer.h"
 
+#import "LocationMonitor.h"
+#import "HealthKitMonitor.h"
+
 @interface MainTableViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableViewCell *lastUploadCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *locationSensorCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *healthSensorCell;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *uploadActivityIndicator;
 @property (weak, nonatomic) IBOutlet UITableViewCell *uploadDataCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *checkConfigurationCell;
@@ -85,15 +89,16 @@
 }
 
 -(void) trackingConfigDidChange {
-    NSDictionary *config = [[NSUserDefaults standardUserDefaults] valueForKey:@"config"];
-    NSString* locationStatus = @"Disabled";
-    if ([config valueForKey:@"location"]) {
-        if ([[[config valueForKey:@"location"] valueForKey:@"enabled"] isEqualToValue:@(YES)]) {
-            NSLog(@"enabling location because of tracking config");
-            locationStatus = @"Enabled";
-        }
+    if ([[LocationMonitor defaultMonitor] recording]) {
+        [self.locationSensorCell.detailTextLabel setText:@"Recording"];
+    } else {
+        [self.locationSensorCell.detailTextLabel setText:@"Disabled"];
     }
-    [self.locationSensorCell.detailTextLabel setText:locationStatus];
+    if ([[HealthKitMonitor defaultMonitor] recording]) {
+        [self.healthSensorCell.detailTextLabel setText:@"Recording"];
+    } else {
+        [self.healthSensorCell.detailTextLabel setText:@"Disabled"];
+    }
 }
 
 

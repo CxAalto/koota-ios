@@ -25,10 +25,6 @@ static ActivitySyncer* currentInstance;
     return currentInstance;
 }
 
--(void)downloadConfig {
-    
-}
-
 - (void)downloadConfigWithSuccess:(void (^)(void))success Error:(void (^)(void))errorHandler {
     NSLog(@"fetching config");
     NSString* configURL = [[NSUserDefaults standardUserDefaults] objectForKey:@"config_get"];
@@ -48,6 +44,8 @@ static ActivitySyncer* currentInstance;
             errorHandler();
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
+                NSDictionary* confFake = @{@"location": @{@"enabled": @(YES)}, @"health": @{@"enabled": @(YES)}};
+                [[NSUserDefaults standardUserDefaults] setObject:confFake forKey:@"config"];
                 [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"config_fetch_time"];
                 [[NSUserDefaults standardUserDefaults] synchronize];
                 success();

@@ -11,6 +11,8 @@
 		264F66D915F5BBA038861F09 /* libPods-ActivityTrackingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C7E03EFA1516FDFC2B57178 /* libPods-ActivityTrackingTests.a */; };
 		8F0703BE1C45B1DD0083F3D5 /* ActivitySyncer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0703BD1C45B1DD0083F3D5 /* ActivitySyncer.m */; };
 		8F54A8821C526F930030D434 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F54A8811C526F930030D434 /* MainTableViewController.m */; };
+		8F6150C71C87590100C2BABF /* LocationMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6150C61C87590100C2BABF /* LocationMonitor.m */; };
+		8F6956321C7CC32600989B21 /* HealthKitMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6956311C7CC32600989B21 /* HealthKitMonitor.m */; };
 		8F9976C01C6B845000E2F59C /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9976BF1C6B845000E2F59C /* HealthKit.framework */; };
 		8FE98AB91C39665700FAB383 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE98AB81C39665700FAB383 /* SettingsViewController.m */; };
 		8FEF17F71C22E9F200EF03F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF17F61C22E9F200EF03F8 /* main.m */; };
@@ -55,6 +57,10 @@
 		8F54A8801C526F930030D434 /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
 		8F54A8811C526F930030D434 /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
 		8F5AF1BD1C6B8AE400277A66 /* ActivityTracking-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ActivityTracking-Prefix.pch"; sourceTree = "<group>"; };
+		8F6150C51C87590100C2BABF /* LocationMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationMonitor.h; sourceTree = "<group>"; };
+		8F6150C61C87590100C2BABF /* LocationMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationMonitor.m; sourceTree = "<group>"; };
+		8F6956301C7CC32600989B21 /* HealthKitMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthKitMonitor.h; sourceTree = "<group>"; };
+		8F6956311C7CC32600989B21 /* HealthKitMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthKitMonitor.m; sourceTree = "<group>"; };
 		8F9976BE1C6B845000E2F59C /* ActivityTracking.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ActivityTracking.entitlements; sourceTree = "<group>"; };
 		8F9976BF1C6B845000E2F59C /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		8FE98AB71C39665700FAB383 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -174,6 +180,10 @@
 				8F0703BD1C45B1DD0083F3D5 /* ActivitySyncer.m */,
 				8F54A8801C526F930030D434 /* MainTableViewController.h */,
 				8F54A8811C526F930030D434 /* MainTableViewController.m */,
+				8F6956301C7CC32600989B21 /* HealthKitMonitor.h */,
+				8F6956311C7CC32600989B21 /* HealthKitMonitor.m */,
+				8F6150C51C87590100C2BABF /* LocationMonitor.h */,
+				8F6150C61C87590100C2BABF /* LocationMonitor.m */,
 			);
 			path = ActivityTracking;
 			sourceTree = "<group>";
@@ -479,6 +489,8 @@
 				8F54A8821C526F930030D434 /* MainTableViewController.m in Sources */,
 				8FE98AB91C39665700FAB383 /* SettingsViewController.m in Sources */,
 				8FEF17FA1C22E9F200EF03F8 /* AppDelegate.m in Sources */,
+				8F6956321C7CC32600989B21 /* HealthKitMonitor.m in Sources */,
+				8F6150C71C87590100C2BABF /* LocationMonitor.m in Sources */,
 				8F0703BE1C45B1DD0083F3D5 /* ActivitySyncer.m in Sources */,
 				8FEF17F71C22E9F200EF03F8 /* main.m in Sources */,
 			);
@@ -628,10 +640,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/$(PROJECT_NAME)-Prefix.pch";
 				INFOPLIST_FILE = ActivityTracking/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fi.aalto.ActivityTracking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -646,10 +660,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/$(PROJECT_NAME)-Prefix.pch";
 				INFOPLIST_FILE = ActivityTracking/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fi.aalto.ActivityTracking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
