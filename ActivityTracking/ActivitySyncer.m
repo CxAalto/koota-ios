@@ -85,11 +85,11 @@ static ActivitySyncer* currentInstance;
             NSMutableDictionary* payload = [[obj valueForKey:@"payload"] mutableCopy];
             NSNumber* timestamp = [NSNumber numberWithDouble:[[obj valueForKey:@"timestamp"] timeIntervalSince1970]];
             NSString* probe = [obj valueForKey:@"probe"];
-            [payload setObject:timestamp forKey:@"timestamp"];
-            [payload setObject:probe forKey:@"probe"];
+            [payload setObject:timestamp forKey:@"TIMESTAMP"];
+            [payload setObject:probe forKey:@"PROBE"];
             [eventsDicts addObject:payload];
         }];
-        [req setHTTPBody:[NSJSONSerialization dataWithJSONObject:eventsDicts options:NSJSONWritingPrettyPrinted error:&error2]];
+        [req setHTTPBody:[NSJSONSerialization dataWithJSONObject:eventsDicts options:0 error:&error2]];
         [[[NSURLSession sharedSession] dataTaskWithRequest:req completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             if (error) {
                 errorHandler();
