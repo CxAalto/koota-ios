@@ -44,7 +44,9 @@ static ActivitySyncer* currentInstance;
             errorHandler();
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
-                NSDictionary* confFake = @{@"location": @{@"enabled": @(YES)}, @"health": @{@"enabled": @(YES)}};
+                NSDictionary* confFake = @{@"location": @{@"enabled": @(YES)},
+                                           @"health": @{@"enabled": @(YES)},
+                                           @"screen": @{@"enabled": @(YES)}};
                 [[NSUserDefaults standardUserDefaults] setObject:confFake forKey:@"config"];
                 [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"config_fetch_time"];
                 [[NSUserDefaults standardUserDefaults] synchronize];
@@ -60,6 +62,7 @@ static ActivitySyncer* currentInstance;
     NSString* userUUID = [[NSUserDefaults standardUserDefaults] objectForKey:@"user_uuid"];
 
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Event"];
+    [request setFetchLimit:100000];
     NSBatchDeleteRequest *delete = [[NSBatchDeleteRequest alloc] initWithFetchRequest:request];
     NSError *requestError = nil;
     NSArray* events = [[(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext] executeFetchRequest:request error:&requestError];
@@ -81,7 +84,9 @@ static ActivitySyncer* currentInstance;
         [events enumerateObjectsUsingBlock:^(NSManagedObject* obj, NSUInteger idx, BOOL * _Nonnull stop) {
             NSMutableDictionary* payload = [[obj valueForKey:@"payload"] mutableCopy];
             NSNumber* timestamp = [NSNumber numberWithDouble:[[obj valueForKey:@"timestamp"] timeIntervalSince1970]];
+            NSString* probe = [obj valueForKey:@"probe"];
             [payload setObject:timestamp forKey:@"timestamp"];
+            [payload setObject:probe forKey:@"probe"];
             [eventsDicts addObject:payload];
         }];
         [req setHTTPBody:[NSJSONSerialization dataWithJSONObject:eventsDicts options:NSJSONWritingPrettyPrinted error:&error2]];

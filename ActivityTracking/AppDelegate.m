@@ -11,6 +11,7 @@
 #import "ActivitySyncer.h"
 #import "HealthKitMonitor.h"
 #import "LocationMonitor.h"
+#import "ScreenMonitor.h"
 
 @interface AppDelegate ()
 
@@ -186,6 +187,16 @@
     } else {
         [[HealthKitMonitor defaultMonitor] stopRecording];
     }
+    if ([config valueForKey:@"screen"]) {
+        if ([[[config valueForKey:@"screen"] valueForKey:@"enabled"] isEqualToValue:@(YES)]) {
+            [[ScreenMonitor defaultMonitor] startRecording];
+        } else {
+            [[ScreenMonitor defaultMonitor] stopRecording];
+        }
+    } else {
+        [[ScreenMonitor defaultMonitor] stopRecording];
+    }
+
 }
 
 # pragma locationManager

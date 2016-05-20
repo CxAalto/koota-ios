@@ -10,6 +10,7 @@
 		0AB9239FD0CD90957F27A58E /* libPods-ActivityTrackingUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 274170F5637DAE2183569474 /* libPods-ActivityTrackingUITests.a */; };
 		264F66D915F5BBA038861F09 /* libPods-ActivityTrackingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C7E03EFA1516FDFC2B57178 /* libPods-ActivityTrackingTests.a */; };
 		8F0703BE1C45B1DD0083F3D5 /* ActivitySyncer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0703BD1C45B1DD0083F3D5 /* ActivitySyncer.m */; };
+		8F3DD1CC1CEEB1E70059D9B9 /* ScreenMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F3DD1CB1CEEB1E70059D9B9 /* ScreenMonitor.m */; };
 		8F54A8821C526F930030D434 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F54A8811C526F930030D434 /* MainTableViewController.m */; };
 		8F6150C71C87590100C2BABF /* LocationMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6150C61C87590100C2BABF /* LocationMonitor.m */; };
 		8F6956321C7CC32600989B21 /* HealthKitMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6956311C7CC32600989B21 /* HealthKitMonitor.m */; };
@@ -54,6 +55,8 @@
 		663C53C3EAF11B567AEA9DF6 /* libPods-ActivityTracking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ActivityTracking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F0703BC1C45B1DD0083F3D5 /* ActivitySyncer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivitySyncer.h; sourceTree = "<group>"; };
 		8F0703BD1C45B1DD0083F3D5 /* ActivitySyncer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivitySyncer.m; sourceTree = "<group>"; };
+		8F3DD1CB1CEEB1E70059D9B9 /* ScreenMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenMonitor.m; sourceTree = "<group>"; };
+		8F3DD1CD1CEEB6760059D9B9 /* ScreenMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenMonitor.h; sourceTree = "<group>"; };
 		8F54A8801C526F930030D434 /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
 		8F54A8811C526F930030D434 /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
 		8F5AF1BD1C6B8AE400277A66 /* ActivityTracking-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ActivityTracking-Prefix.pch"; sourceTree = "<group>"; };
@@ -183,7 +186,9 @@
 				8F6956301C7CC32600989B21 /* HealthKitMonitor.h */,
 				8F6956311C7CC32600989B21 /* HealthKitMonitor.m */,
 				8F6150C51C87590100C2BABF /* LocationMonitor.h */,
+				8F3DD1CD1CEEB6760059D9B9 /* ScreenMonitor.h */,
 				8F6150C61C87590100C2BABF /* LocationMonitor.m */,
+				8F3DD1CB1CEEB1E70059D9B9 /* ScreenMonitor.m */,
 			);
 			path = ActivityTracking;
 			sourceTree = "<group>";
@@ -490,6 +495,7 @@
 				8FE98AB91C39665700FAB383 /* SettingsViewController.m in Sources */,
 				8FEF17FA1C22E9F200EF03F8 /* AppDelegate.m in Sources */,
 				8F6956321C7CC32600989B21 /* HealthKitMonitor.m in Sources */,
+				8F3DD1CC1CEEB1E70059D9B9 /* ScreenMonitor.m in Sources */,
 				8F6150C71C87590100C2BABF /* LocationMonitor.m in Sources */,
 				8F0703BE1C45B1DD0083F3D5 /* ActivitySyncer.m in Sources */,
 				8FEF17F71C22E9F200EF03F8 /* main.m in Sources */,

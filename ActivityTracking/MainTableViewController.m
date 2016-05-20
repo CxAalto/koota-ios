@@ -13,12 +13,14 @@
 
 #import "LocationMonitor.h"
 #import "HealthKitMonitor.h"
+#import "ScreenMonitor.h"
 
 @interface MainTableViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableViewCell *lastUploadCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *locationSensorCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *healthSensorCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *screenSensorCell;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *uploadActivityIndicator;
 @property (weak, nonatomic) IBOutlet UITableViewCell *uploadDataCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *checkConfigurationCell;
@@ -99,6 +101,12 @@
     } else {
         [self.healthSensorCell.detailTextLabel setText:@"Disabled"];
     }
+    if ([[ScreenMonitor defaultMonitor] recording]) {
+        [self.screenSensorCell.detailTextLabel setText:@"Recording"];
+    } else {
+        [self.screenSensorCell.detailTextLabel setText:@"Disabled"];
+    }
+
 }
 
 

@@ -53,6 +53,7 @@ static HealthKitMonitor* currentInstance;
                     self.recording = NO;
                     // todo: error handling
                 } else {
+                    
                     NSLog(@"Steps logged");
                 }
             }];
