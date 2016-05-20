@@ -48,7 +48,7 @@ static ScreenMonitor* currentInstance;
                                               NSLog(@"lock state change = %llu", state);
                                               NSManagedObject* event = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:[(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext]];
                                               [event setValue:[NSDate date] forKey:@"timestamp"];
-                                              [event setValue:@"Screen" forKey:@"probe"];
+                                              [event setValue:@"screen" forKey:@"probe"];
                                               [event setValue:@{@"state": [NSNumber numberWithInt:state]} forKey:@"payload"];
                                               [(AppDelegate*)[[UIApplication sharedApplication] delegate] saveContext];
                                               if (result != NOTIFY_STATUS_OK) {
