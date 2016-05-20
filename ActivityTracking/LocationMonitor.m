@@ -88,7 +88,7 @@ static LocationMonitor* currentInstance;
     for (CLLocation* location in locations) {
         NSManagedObject* event = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:[(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext]];
         [event setValue:[NSDate date] forKey:@"timestamp"];
-        [event setValue:@"Location" forKey:@"probe"];
+        [event setValue:@"location" forKey:@"probe"];
         [event setValue:@{@"lat": [NSNumber numberWithDouble:location.coordinate.latitude],
                           @"lon": [NSNumber numberWithDouble:location.coordinate.longitude],
                           @"speed": [NSNumber numberWithFloat:location.speed],
